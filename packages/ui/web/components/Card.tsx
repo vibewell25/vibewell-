@@ -1,12 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 export interface CardProps {
   title?: string;
   subtitle?: string;
   image?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
   onClick?: () => void;
 }

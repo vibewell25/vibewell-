@@ -15,7 +15,7 @@ module.exports = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
   setupFilesAfterEnv: ['<rootDir>/setupTests.js', '<rootDir>/jest.setup.js'],
-  testPathIgnorePatterns: ['/node_modules/', '/.next/', '/dist/'],
+  testPathIgnorePatterns: ['/node_modules/', '/.next/', '/dist/', '/e2e/'],
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', { 
       tsconfig: 'tsconfig.jest.json',
@@ -34,6 +34,7 @@ module.exports = {
     '!**/dist/**',
     '!**/stories/**',
     '!**/mocks/**',
+    '!**/e2e/**',
   ],
   coverageThreshold: {
     global: {

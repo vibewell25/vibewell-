@@ -1,4 +1,4 @@
-declare module '@storybook/react' {
+declare module '@storybook/react-webpack5' {
   import { ComponentType, ReactNode } from 'react';
 
   export interface Meta<T> {

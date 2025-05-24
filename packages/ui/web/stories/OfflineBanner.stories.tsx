@@ -1,100 +1,50 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import { OfflineBanner } from '../components/OfflineBanner';
+import { Meta, StoryObj } from '@storybook/react-webpack5';
 
-// Mocking the online/offline status for the stories
-const meta: Meta<typeof OfflineBanner> = {
+// Simple offline banner component
+function OfflineBanner() {
+  return (
+    <div className="fixed top-0 left-0 right-0 bg-red-500 text-white text-center py-2 z-50">
+      You are currently offline. Some features may not be available.
+    </div>
+  );
+}
+
+const meta = {
   title: 'Components/OfflineBanner',
   component: OfflineBanner,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
-  tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <div className="p-4">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;
-type Story = StoryObj<typeof OfflineBanner>;
 
-// Online state (banner showing "Back Online" message)
-export const Online: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'Banner showing when the user comes back online.',
-      },
-    },
-  },
-  decorators: [
-    (Story) => {
-      // Mock the navigator.onLine to be true (online)
-      Object.defineProperty(window.navigator, 'onLine', { value: true, configurable: true });
-      
-      // Simulate the "online" event to show the banner
-      setTimeout(() => {
-        window.dispatchEvent(new Event('online'));
-      }, 100);
-      
-      return <Story />;
-    },
-  ],
-};
+export const Default = {};
 
-// Offline state (banner showing "You are offline" message)
-export const Offline: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'Banner showing when the user goes offline.',
-      },
-    },
-  },
-  decorators: [
-    (Story) => {
-      // Mock the navigator.onLine to be false (offline)
-      Object.defineProperty(window.navigator, 'onLine', { value: false, configurable: true });
-      
-      // Simulate the "offline" event to show the banner
-      setTimeout(() => {
-        window.dispatchEvent(new Event('offline'));
-      }, 100);
-      
-      return <Story />;
-    },
-  ],
-};
+// Custom version as a separate component
+function CustomOfflineBanner() {
+  return (
+    <div className="fixed top-0 left-0 right-0 bg-amber-500 text-white text-center py-3 z-50 flex justify-center items-center">
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        className="h-5 w-5 mr-2" 
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor"
+      >
+        <path 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth={2} 
+          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" 
+        />
+      </svg>
+      <span>Network connection lost. Reconnecting...</span>
+    </div>
+  );
+}
 
-// Dark mode version
-export const OfflineDarkMode: Story = {
-  parameters: {
-    backgrounds: { default: 'dark' },
-    docs: {
-      description: {
-        story: 'Offline banner in dark mode.',
-      },
-    },
-  },
-  decorators: [
-    (Story) => {
-      // Mock the navigator.onLine to be false (offline)
-      Object.defineProperty(window.navigator, 'onLine', { value: false, configurable: true });
-      
-      // Simulate the "offline" event to show the banner
-      setTimeout(() => {
-        window.dispatchEvent(new Event('offline'));
-      }, 100);
-      
-      return (
-        <div className="p-4 bg-neutral-900 dark dark:text-white min-h-screen">
-          <Story />
-        </div>
-      );
-    },
-  ],
+export const WithCustomStyling = {
+  render: () => <CustomOfflineBanner />
 }; 

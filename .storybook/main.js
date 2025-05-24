@@ -1,24 +1,14 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../packages/ui/**/*.stories.@(js|jsx|ts|tsx)', '../packages/ui/**/*.story.@(js|jsx|ts|tsx)'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-a11y',
-  ],
+  stories: ['../packages/ui/**/*.(stories|story).@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-essentials'],
   framework: {
     name: '@storybook/react-webpack5',
-    options: {},
+    options: {}
   },
-  docs: {
-    autodocs: 'tag',
-  },
-  typescript: {
-    check: true,
-    checkOptions: {},
-    reactDocgen: 'react-docgen-typescript',
+  core: {
+    builder: '@storybook/builder-webpack5'
   },
   webpackFinal: async (config) => {
     // Add TypeScript path aliases

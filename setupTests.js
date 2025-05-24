@@ -4,9 +4,8 @@
 // learn more: https://github.com/testing-library/jest-dom
 require('@testing-library/jest-dom');
 
-// Mock CSS modules
-jest.mock('*.module.css', () => ({}));
-jest.mock('*.module.scss', () => ({}));
+// CSS modules are handled by moduleNameMapper in jest.config.js
+// Remove the problematic jest.mock calls
 
 // Mock next/image
 jest.mock('next/image', () => ({
