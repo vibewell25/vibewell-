@@ -92,6 +92,14 @@ export { Toast };
 import { OfflineBanner } from './components/OfflineBanner';
 export { OfflineBanner };
 
+// Import and re-export HeroSection
+import { HeroSection } from './components/HeroSection';
+export { HeroSection };
+
+// Import and re-export FeatureCard
+import { FeatureCard } from './components/FeatureCard';
+export { FeatureCard };
+
 // Default export
 export default {
   Button,

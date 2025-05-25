@@ -22,7 +22,7 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
   onNavigate
 }) => {
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 z-50">
+    <nav className="fixed bottom-0 left-0 w-full bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 shadow-md z-50">
       <div className="max-w-screen-xl mx-auto px-4">
         <div className="flex justify-around items-center h-16">
           {items.map((item) => (
@@ -31,7 +31,7 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
               href={item.route}
               className={`flex flex-col items-center justify-center w-full h-full ${
                 activeKey === item.key
-                  ? 'text-coral-500 dark:text-coral-400'
+                  ? 'text-purple-600 dark:text-purple-400'
                   : 'text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100'
               }`}
               onClick={() => onNavigate && onNavigate(item.key)}

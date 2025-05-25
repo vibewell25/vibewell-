@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@vibewell/ui-web';
+import { useCart } from '../../../context/CartContext';
 
 interface ProductPageProps {
   params: {
@@ -36,9 +37,41 @@ export default function ProductPage({ params }: ProductPageProps) {
     ],
     category: 'Skin Care',
     brand: 'VibeWell Essentials',
+    image: '/images/products/serum.jpg'
   };
 
   const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const { addItem } = useCart();
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleAddToCart = () => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image
+    });
+    
+    // Add multiple items based on quantity
+    for (let i = 1; i < quantity; i++) {
+      addItem({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image
+      });
+    }
+  };
 
   return (
     <div className="py-12">
@@ -68,8 +101,17 @@ export default function ProductPage({ params }: ProductPageProps) {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="text-white text-2xl font-medium p-8 text-center">
-                  {product.name}
+                <div className="relative w-full h-full">
+                  <img 
+                    src={product.image} 
+                    alt={product.name} 
+                    className="absolute w-full h-full object-cover" 
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
+                    <div className="text-white text-2xl font-medium p-8 text-center">
+                      {product.name}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -128,15 +170,25 @@ export default function ProductPage({ params }: ProductPageProps) {
             <div className="mb-8">
               <div className="flex space-x-4">
                 <div className="w-20 h-12 border border-neutral-300 dark:border-neutral-700 rounded-md flex items-center">
-                  <button className="w-12 h-12 flex items-center justify-center text-neutral-600 dark:text-neutral-400">
+                  <button 
+                    className="w-12 h-12 flex items-center justify-center text-neutral-600 dark:text-neutral-400"
+                    onClick={decreaseQuantity}
+                  >
                     -
                   </button>
-                  <span className="flex-1 text-center">1</span>
-                  <button className="w-12 h-12 flex items-center justify-center text-neutral-600 dark:text-neutral-400">
+                  <span className="flex-1 text-center">{quantity}</span>
+                  <button 
+                    className="w-12 h-12 flex items-center justify-center text-neutral-600 dark:text-neutral-400"
+                    onClick={increaseQuantity}
+                  >
                     +
                   </button>
                 </div>
-                <Button variant="primary" className="flex-1">
+                <Button 
+                  variant="primary" 
+                  className="flex-1"
+                  onClick={handleAddToCart}
+                >
                   Add to Cart
                 </Button>
                 <button className="w-12 h-12 border border-neutral-300 dark:border-neutral-700 rounded-md flex items-center justify-center text-neutral-600 dark:text-neutral-400">

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A1AF" />
+      <stop offset="100%" stop-color="#F580AD" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#gradient)" />
+  <text x="50%" y="50%" font-family="Arial" font-size="48" text-anchor="middle" fill="white">Balancing Toner</text>
+  <g stroke="white" stroke-width="3" fill="none" transform="translate(400, 300) scale(3)">
+    <path d="M8 21h8a1 1 0 0 0 1 -1v-10a3 3 0 0 0 -3 -3h-4a3 3 0 0 0 -3 3v10a1 1 0 0 0 1 1z" />
+    <path d="M10 14h4" />
+    <path d="M12 12v4" />
+    <path d="M10 7v-4h4v4" />
+  </g>
+</svg> 

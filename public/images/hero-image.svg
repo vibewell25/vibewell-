@@ -1,0 +1,7 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1000" fill="#F8F6F2"/>
+  <rect x="100" y="200" width="600" height="600" rx="20" fill="#E6DFDA"/>
+  <path d="M400 350C433.137 350 460 376.863 460 410C460 443.137 433.137 470 400 470C366.863 470 340 443.137 340 410C340 376.863 366.863 350 400 350Z" fill="#D2C9C0"/>
+  <path d="M480 650V630C480 596.863 453.137 570 420 570H380C346.863 570 320 596.863 320 630V650" stroke="#D2C9C0" stroke-width="24"/>
+  <text x="400" y="750" font-family="Arial" font-size="24" fill="#E07A5F" text-anchor="middle">Wellness Image</text>
+</svg> 

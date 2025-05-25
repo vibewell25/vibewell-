@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    // Next.js App Router pages and layouts
     './app/**/*.{js,ts,jsx,tsx}',
+    // Any local components in the web app
     './components/**/*.{js,ts,jsx,tsx}',
-    '../../packages/ui/web/**/*.{js,ts,jsx,tsx}'
+    // Shared UI package source (not node_modules)
+    '../../packages/ui/web/src/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: ['class', 'media'],
   theme: {

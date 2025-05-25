@@ -11,6 +11,7 @@
     "storybook": "start-storybook -p 6007"
   },
   "dependencies": {
+    "@stripe/stripe-react-native": "^0.47.0",
     "@vibewell/ui-core-theme": "workspace:*",
     "react": "18.2.0",
     "react-native": "0.72.6",
@@ -31,4 +32,4 @@
     "react": "18.2.0",
     "react-native": "0.72.6"
   }
-} 
+}

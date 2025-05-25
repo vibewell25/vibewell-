@@ -30,7 +30,21 @@ export { prisma };
 export * from './supabase';
 export * from './supabaseClient';
 // Export API endpoints
-export * from './endpoints';
+// Import endpoints modules and re-export with renamed conflicting function
+import * as userEndpoints from './endpoints/user';
+import * as serviceEndpoints from './endpoints/services';
+import * as bookingsEndpoints from './endpoints/bookings';
+import * as skinAnalysisEndpoints from './endpoints/skinAnalysis';
+// Rename the conflicting function
+export const updateUserProfileById = userEndpoints.updateUserProfile;
+// Re-export all other functions from endpoints
+export const {
+  // Exclude updateUserProfile to avoid conflict
+  ...otherUserEndpoints
+} = userEndpoints;
+export * from './endpoints/services';
+export * from './endpoints/bookings';
+export * from './endpoints/skinAnalysis';
 // Export API types
 export * from './types';
 //# sourceMappingURL=index.js.map
