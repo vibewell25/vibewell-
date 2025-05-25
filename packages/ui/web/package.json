@@ -17,7 +17,7 @@
     "@stripe/stripe-js": "^7.3.0",
     "@vibewell/ui-core-theme": "workspace:*",
     "framer-motion": "^10.16.16",
-    "next": "^14.0.0",
+    "next": "^14.2.26",
     "react": "^18.2.0"
   },
   "devDependencies": {
@@ -51,7 +51,7 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "next": "^14.0.0",
+    "next": "^14.2.26",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
